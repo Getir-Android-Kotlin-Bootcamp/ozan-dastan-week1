@@ -1,3 +1,18 @@
+// PAGE-24
+// org.example.package // package name standard
+
+// PAGE-26
+const val MAX_HEALTH = 100
+val USER_NAME_FIELD = "Username"
+val mutableCollection: MutableCollection<String> = HashSet()
+
+// PAGE-28
+// @Target(AnnotationTarget.PROPERTY)
+// annotation class JsonExclude
+// PAGE-28
+// @file:JvmName("FooBar")
+// package foo.bar
+
 fun main() {
     // PAGE-9
     println("PAGE-9")
@@ -103,6 +118,28 @@ fun main() {
 
     // PAGE-21
     println("PAGE-21")
+    val text3: String? = null // nullable val
+    if (text3 == null) {
+        println("text3 is null")
+    }
+
+    // PAGE-22
+    println("PAGE-22")
+    println(checkString(55))
+    println(checkString("patikadev"))
+
+    // PAGE-37
+    println("PAGE-37")
+    val user = User(1, "Ozan", "1234", "mail")
+    println(user)
+
+    // PAGE-38
+    println("PAGE-38")
+    auth() //default function parameters
+
+    // PAGE-39
+    println("PAGE-39")
+    
 }
 
 // PAGE-10
@@ -146,3 +183,29 @@ fun objectToColor(obj: Any): String =
             is String -> "String"
             else -> "None of them"
         }
+
+// PAGE-22
+fun checkString(obj: Any): Int {
+    if (obj is String && obj.length > 0) {
+        return obj.length
+    } else {
+        return -1
+    }
+}
+
+// PAGE-25
+// @Test
+// fun addition_isCorrect() {
+//     val str1 = "Hello"
+//     val str2 = "World"
+//     assertEquals("Hello World", str1, str2)
+// }
+
+// PAGE-37
+data class User( // DTO
+val id: Int, val username: String, val password: String, val email: String)
+
+// PAGE-38
+fun auth(username: String = "User1", password: String = "1234") {
+    println("username: $username, password: $password")
+}
